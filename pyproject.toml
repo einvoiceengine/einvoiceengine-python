@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "einvoiceengine"
+version = "0.1.0"
+description = "Python client for the E-Invoicing API: validate, parse, convert, create and repair EN 16931, XRechnung, Peppol, ZUGFeRD / Factur-X, Facturae and KSeF invoices"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["e-invoicing", "einvoice", "xrechnung", "zugferd", "factur-x", "peppol", "en16931", "facturae", "ksef", "ubl", "cii"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial :: Accounting",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://einvoiceengine.com"
+Documentation = "https://einvoiceengine.com/docs/sdk"
+"API reference" = "https://einvoiceengine.com/openapi.json"
+Source = "https://github.com/einvoiceengine/einvoiceengine-python"
+Issues = "https://github.com/einvoiceengine/einvoiceengine-python/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/einvoiceengine"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "README.md", "LICENSE", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
